@@ -81,34 +81,3 @@ def greedy_bfs_circular_chromatic_number(n, m, edges, K):
                     best_d = d
 
     return best_k, best_d, final_coloring
-
-
-def main():
-    def C(n):
-        return [(i, i + 1) for i in range(n - 1)] + [(0, n - 1)]
-
-    triangle_edges = [(0, 1), (0, 2), (1, 2)]
-    C5_edges  = C(5)
-    C7_edges  = C(7)
-    C11_edges = C(11)
-    P6_edges  = [(i, i + 1) for i in range(5)]
-    two_C5_edges = C(5) + [(i + 5, j + 5) for i, j in C(5)]
-
-    cases = [
-        ("Triangle (K3)", 3, 3, triangle_edges, 5),
-        ("C5", 5, 5, C5_edges, 5),
-        ("C7", 7, 7, C7_edges, 5),
-        ("C11", 11, 11, C11_edges, 5),
-        ("P6 (path)", 6, 5, P6_edges, 5),
-        ("Two disjoint C5s", 10, 10, two_C5_edges, 5),
-    ]
-
-    for name, n, m, edges, K in cases:
-        best_k, best_d, coloring = greedy_bfs_circular_chromatic_number(n, m, edges, K)
-        print(f"{name}")
-        print(f"The algorithm approximates chi_c as {best_k}/{best_d} = {best_k/best_d:.4f}")
-        print(f"The algorithm coloring is: {coloring}\n")
-
-
-if __name__ == "__main__":
-    main()
