@@ -11,13 +11,16 @@ python3 generate_input.py -a ALG -n N -e E [-p PROB] -o FILE
 |------|-------------|---------|
 | -a | Algorithm (1, 2, 3) | required |
 | -n | Number of vertices | 10 |
-| -e | Number of edges | 2×n |
+| -e | Number of edges | 2*n |
 | -p | Edge probability 0.0-1.0 | - |
 | --param | Override param (D/K/T B) | auto |
 | --seed | Random seed | - |
 | -o | Output file | required |
 
-Auto params: alg1 → D=n, alg2 → "40 500", alg3 → K=n
+Auto params: 
+- alg1: D=n
+- alg2: "40 500"
+- alg3: K=n
 
 ## Run Algorithm
 ```bash
