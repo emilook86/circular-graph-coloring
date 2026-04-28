@@ -3,6 +3,7 @@ import sys
 import math
 
 from algorithms.algorithm1 import approximate_circular_chromatic_number as alg1_func
+from algorithms.algorithm2 import circle_relaxation_circular_chromatic_number as alg2_func
 from algorithms.algorithm3 import greedy_bfs_circular_chromatic_number as alg3_func
 
 
@@ -53,7 +54,11 @@ def run_algorithm1(edges, n, m, D):
 
 
 def run_algorithm2(edges, n, m, T, B):
-    return "Algorithm 2 (Circle relaxation) is not yet implemented.\n"
+    best_r, angles = alg2_func(n, m, edges, T, B)
+    output = []
+    output.append(f"Approximation of chi_c: {best_r:.4f}")
+    output.append(f"Coloring: {' '.join(f'{a:.4f}' for a in angles)}")
+    return "\n".join(output) + "\n"
 
 
 def run_algorithm3(edges, n, m, K):
